@@ -59,7 +59,7 @@
 /def -ib'u' vi_u = /viundo
 /def -ib'v' vi_v = /beep
 /def -ib'w' vi_w = /dokey WRIGHT%; /dokey RIGHT
-/def -ib'x' vi_x = /dokey DCH
+/def -ib'x' vi_x = /vi_delchar
 ;/def -ib'y' vi_y = /beep
 /def -ib'z' vi_z = /beep
 
@@ -139,7 +139,36 @@
 
 /def -ib'1G' vi_1capG = /dokey RECALLBEG%; /vi_left
 /def -ib'dd' vi_dd = /set _vibuffer=$(/recall -i 1)%; /dokey dline
-/def -ib'dw' vi_dw = /dokey DWORD
+;/def -ib'dw' vi_dw = /dokey DWORD
+;/def -ib'dw' vi_dw = \
+;	/test echo(strcat("_now: ", kbpoint()))%; \
+;	/@test _beg := kbpoint()%; \
+;	/test echo(strcat("_beg: ", _beg))%; \
+;	/@test kbwordright()%; \
+;	/test echo(strcat("_now: ", kbpoint()))%; \
+;	/@test _end := kbpoint()%; \
+;	/test echo(strcat("_end: ", _end))%; \
+;	/@test _vibuffer := substr(kbhead(), _beg, _end)%; \
+;	/test echo(strcat("kbhead: ", kbhead()))%; \
+;	/test echo(strcat("_vibuffer: ", _vibuffer))%; \
+/def -i vi_delchar = \
+	/@test _vibuffer := substr(kbtail(), 0, 1)%; \
+;	/test echo(strcat("_vibuffer: ", _vibuffer))%; \
+	/dokey DCH
+/def -i vi_yankword = \
+	/@test _beg := kbpoint()%; \
+;	/test echo(strcat("_beg: ", _beg))%; \
+	/@test _end := kbwordright() + 1%; \
+;	/test echo(strcat("_end: ", _end))%; \
+	/@test _vibuffer := substr(kbtail(), 0, _end - _beg)%; \
+;	/test echo(strcat("kbhead: ", kbhead()))%; \
+;	/test echo(strcat("_vibuffer: ", _vibuffer))%; \
+
+/def -ib'dw' vi_dw = /vi_yankword%; /@test kbdel(_end)
 /def -ib'dW' vi_dcapW = /dokey DWORD
 /def -ib'cw' vi_cw = /dokey DWORD%; /viins
+/def -ib'yw' vi_yw = /vi_yankword
 /def -ib'yy' vi_yy = /set _vibuffer=$(/recall -i 1)
+
+/def -ib'p' vi_p = /dokey RIGHT%; /@test input(_vibuffer)
+/def -ib'P' vi_cap_P = /@test input(_vibuffer)

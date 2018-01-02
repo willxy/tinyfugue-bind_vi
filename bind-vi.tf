@@ -1,7 +1,12 @@
 /set vimode=
-/set status_fields @more:8:Br :1 @world :1 @read:6 :1 @active:11 :1 @log:5 :1 @mail:6 :1 vimode:9 :1 insert:6 :1 @clock:5
 
-/def -i visetmode = /set vimode=%1%; /test status_fields := status_fields
+;; default:         @more:8:Br :1 @world :1 @read:6 :1 @active:11 :1 @log:5 :1 @mail:6 :1 insert:6 :1 kbnum:4 :1 @clock:5
+;/set status_fields @more:8:Br :1 @world :1 @read:6 :1 @active:11 :1 @log:5 :1 @mail:6 :1 vimode:9 :1 insert:6 :1 @clock:5
+;/def -i visetmode = /set vimode=%1%; /test status_fields := status_fields
+
+/status_add -A@mail -x vimode:9
+/def -i visetmode = /set vimode=%1
+
 /def -i viins = \
 	/purge -ib vi_*%; \
 	/def -i -b'^U' = /DOKEY DLINE%; \
@@ -9,7 +14,7 @@
 	/visetmode
 /def -i vicmd = /vi_left%; \
 	/load -q ~/.tf-vicmd%; \
-	/visetmode VI-CMD
+	/visetmode vi-cmd
 
 /def -i visave = /set _viundo=$(/recall -i 1)
 /def -i viundo = /if ( _viundo !~ "" ) \

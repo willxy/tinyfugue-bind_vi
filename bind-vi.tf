@@ -76,7 +76,7 @@
 /def -ib'K' vi_cap-K = /dokey UP
 /def -ib'L' vi_cap-L = /dokey END
 /def -ib'M' vi_cap-M = /beep
-/def -ib'N' vi_cap-N = /beep
+/def -ib'N' vi_cap-N = /dokey SEARCHF
 /def -ib'O' vi_cap-O = /beep
 /def -ib'P' vi_cap-P = /beep
 /def -ib'Q' vi_cap-Q = /beep

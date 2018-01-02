@@ -9,7 +9,7 @@
 	/def -ib'^[' vi_esc = /vicmd%; \
 	/visetmode
 /def -i vicmd = /vi_left%; \
-	/load -q ~/.tf-vicmd%; \
+	/load -q bind-vi.tf%; \
 	/visetmode vi-cmd
 
 /def -i visave = /set _viundo=$(/recall -i 1)

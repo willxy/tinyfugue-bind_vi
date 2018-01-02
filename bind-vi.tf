@@ -58,7 +58,7 @@
 /def -ib't' vi_t = /beep
 /def -ib'u' vi_u = /viundo
 /def -ib'v' vi_v = /beep
-/def -ib'w' vi_w = /dokey WRIGHT
+/def -ib'w' vi_w = /dokey WRIGHT%; /dokey RIGHT
 /def -ib'x' vi_x = /dokey DCH
 ;/def -ib'y' vi_y = /beep
 /def -ib'z' vi_z = /beep
@@ -67,7 +67,7 @@
 /def -ib'B' vi_cap-B = /dokey WLEFT
 /def -ib'C' vi_cap-C = /beep
 /def -ib'D' vi_cap-D = /dokey DEOL
-/def -ib'E' vi_cap-E = /dokey WRIGHT
+/def -ib'E' vi_cap-E = /dokey RIGHT%; /dokey WRIGHT%; /dokey LEFT
 /def -ib'F' vi_cap-F = /beep
 /def -ib'G' vi_cap-G = /dokey RECALLEND%; /vi_left
 /def -ib'H' vi_cap-H = /dokey HOME
@@ -85,7 +85,7 @@
 /def -ib'T' vi_cap-T = /beep
 /def -ib'U' vi_cap-U = /beep
 /def -ib'V' vi_cap-V = /beep
-/def -ib'W' vi_cap-W = /dokey WRIGHT
+/def -ib'W' vi_cap-W = /dokey WRIGHT%; /dokey RIGHT
 /def -ib'X' vi_cap-X = /beep
 /def -ib'Y' vi_cap-Y = /beep
 /def -ib'Z' vi_cap-Z = /beep

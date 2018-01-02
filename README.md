@@ -15,7 +15,7 @@ Not currently implemented:
  - R
 
 Not currently working right:
- - /, n, p, G
+ - /, n, N, G
  
 TinyFugue:
  - http://tinyfugue.sourceforge.net
